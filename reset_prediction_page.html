@@ -39,7 +39,7 @@
     const userId = urlParams.get('userId');
 
     if (userId) {
-      fetch('https://script.google.com/macros/s/ใส่-URL-ของคุณที่นี่/exec?userId=' + encodeURIComponent(userId))
+      fetch('https://script.google.com/macros/s/AKfycbwTyf9wNsKysl0KBmY6FRdW74ACHz8eu6KL7OibvZ1QS40iStmsb-M0b8AI9iEODXU/exec?userId=/exec?userId=' + encodeURIComponent(userId))
         .then(response => response.json())
         .then(data => {
           document.querySelector('h1').innerText = "รีเซตสิทธิ์เรียบร้อยแล้ว!";

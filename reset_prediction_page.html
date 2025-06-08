@@ -8,16 +8,16 @@
       font-family: 'Kanit', sans-serif;
       text-align: center;
       padding-top: 100px;
-      background-color: #f2f2f2;
-      color: #333;
+      background-color: #0d0d0d;
+      color: #ffffff;
     }
     h1 {
       font-size: 24px;
-      color: #007bff;
+      color: #00ffcc;
     }
     .loader {
       border: 6px solid #f3f3f3;
-      border-top: 6px solid #007bff;
+      border-top: 6px solid #00ffcc;
       border-radius: 50%;
       width: 40px;
       height: 40px;
@@ -39,16 +39,16 @@
     const userId = urlParams.get('userId');
 
     if (userId) {
-      fetch("https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbyOe35sKHhnFcv2DddQX5NXJD_XeYN3QDHnfK4T4D4L50ff4UynfHEGIEUfjAMLjx6b/exec?reset=" + encodeURIComponent(userId))
+      fetch('https://script.google.com/macros/s/AKfycbxvKc6ZYjlUxVA9xXKZ1ScieogJnhmSRXsBsOkPK0UqKL4KvOcgMDmLpMXx6zfiu27Y/exec?reset=' + encodeURIComponent(userId))
         .then(response => response.text())
         .then(result => {
-          document.querySelector("h1").innerText = result;
+          document.querySelector('h1').innerText = result;
         })
         .catch(error => {
-          document.querySelector("h1").innerText = "❗ เกิดข้อผิดพลาดในการเชื่อมต่อกับระบบ";
+          document.querySelector('h1').innerText = '❗ เกิดข้อผิดพลาดในการเชื่อมต่อกับระบบ';
         });
     } else {
-      document.querySelector("h1").innerText = "❗ ไม่พบข้อมูลผู้ใช้ (userId)";
+      document.querySelector('h1').innerText = '❗ ไม่พบข้อมูลผู้ใช้ (userId)';
     }
   </script>
 </body>

@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base target="_top">
-    <style>
-      body {
-        background-color: black;
-        color: #00ffcc;
-        font-family: 'Courier New', Courier, monospace;
-        text-align: center;
-        padding-top: 10%;
-      }
-      h1 {
-        font-size: 2em;
-        animation: glow 2s infinite alternate;
-      }
-      @keyframes glow {
-        from { text-shadow: 0 0 10px #00ffff; }
-        to   { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
-      }
-    </style>
-  </head>
-  <body>
-    <h1>🌑 สิทธิ์ของท่านถูกเปิดใหม่แล้ว 🌌</h1>
-    <p>ท่านสามารถกลับไปพิมพ์เลข 2 หลักได้อีกครั้งแล้ว</p>
-    <p>ขอให้โชคชะตานำทางท่าน... ใต้จันทร์ดำ 🌙</p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>รีเซตสิทธิ์การทำนาย</title>
+  <style>
+    body {
+      font-family: "Prompt", sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .loader {
+      border: 8px solid #444;
+      border-top: 8px solid #00ffcc;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    h1 {
+      color: #00ffcc;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader"></div>
+  <h1>กำลังรีเซตสิทธิ์ของคุณ...</h1>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('userId');
+
+    if (userId) {
+      fetch('https://script.google.com/macros/s/ใส่-URL-ของคุณที่นี่/exec?userId=' + encodeURIComponent(userId))
+        .then(response => response.json())
+        .then(data => {
+          document.querySelector('h1').innerText = "รีเซตสิทธิ์เรียบร้อยแล้ว!";
+        })
+        .catch(error => {
+          document.querySelector('h1').innerText = "เกิดข้อผิดพลาดในการรีเซต";
+        });
+    } else {
+      document.querySelector('h1').innerText = "ไม่พบข้อมูลผู้ใช้ (userId)";
+    }
+  </script>
+</body>
 </html>

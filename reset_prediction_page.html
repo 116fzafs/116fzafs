@@ -40,7 +40,7 @@
     const userId = urlParams.get('userId');
 
     if (userId) {
-      fetch('https://script.google.com/macros/s/AKfycbdBUa_36B-ld0KQiPC68Ubbf4xy2unfP_rQdQKWEdcvzLJs09MH0uNM2hQn_DGyBZA/exec?reset=' + encodeURIComponent(userId))
+      fetch('https://script.google.com/macros/s/ใส่ที่นี่/exec?reset=' + encodeURIComponent(userId))
         .then(response => response.text())
         .then(result => {
           document.querySelector('h1').innerText = result;
